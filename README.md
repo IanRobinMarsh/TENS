@@ -1,3 +1,3 @@
 # TENS
-Run with Rscript Code/tens.R
+Run with Rscript R/tens.R
 
