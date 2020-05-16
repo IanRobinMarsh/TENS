@@ -34,7 +34,7 @@ IfactorM    <- 1000/3600
 # --------------------------------------------------------------
 # Read INRIX
 # --------------------------------------------------------------
-i <- fread("inData/inrix_225285973_1071883675_oct2018.csv")
+i <- fread("InData/inrix_225285973_1071883675_oct2018.csv")
 
 i[, c("reference",
       "segmenttype",
@@ -79,7 +79,7 @@ inrixSouth[, Epoch_inrix := as.numeric(as.POSIXct(timestamputc)) - min(as.numeri
 # Mcs
 # --------------------------------------------------------------
 
-m <- fread("inData/mcs_1159_1162_oct2018.csv")
+m <- fread("InData/mcs_1159_1162_oct2018.csv")
 
 mcsNorth <- m[fk_id == 1159]
 print(paste("No. rows in mcs North", nrow(mcsNorth)))
@@ -1001,4 +1001,4 @@ invisible(dev.off())
 # Convert
 # ----------------------------------------------------------------
 
-system2("./convertall-py")
+system2("./Python/convertall-py")
