@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd Pdf
+python ../Python/convert.py
+mv *.png ../Png
+cd ..
