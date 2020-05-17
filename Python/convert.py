@@ -13,6 +13,7 @@ def main():
         if extension == '.pdf': 
             cmd_str = ' '.join(['convert',
                                 '-density 300',
+				'-flatten',
                                 full_file_name,
                                 base_name + '.png'])
             print(cmd_str)  # echo command to terminal
