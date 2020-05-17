@@ -7,7 +7,7 @@ require(igraph, warn.conflicts=FALSE)
 require(TSstudio, warn.conflicts=FALSE)
 require(plotly, warn.conflicts=FALSE)
 require(dtw, warn.conflicts=FALSE)
-require(ContourFunctions, warn.conflicts=FALSE)
+#require(ContourFunctions, warn.conflicts=FALSE)
 
 # --------------------------------------------------------------
 # Machine specific
