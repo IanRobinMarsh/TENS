@@ -24,3 +24,11 @@ To convert the pdfs to pngs
 Execute
   - Run with Rscript R/tens.R
 
+
+Experiment
+  - If you want to experiment with the script
+    without running everything.
+    - Start R
+    - >source("R/tens.R")
+    - The script will execute, complete and
+    - you'll have all the variables available.
