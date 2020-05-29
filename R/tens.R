@@ -1,4 +1,10 @@
 # --------------------------------------------------------------
+# Command line processing
+# --------------------------------------------------------------
+args = commandArgs(trailingOnly=TRUE)
+print(args)
+
+# --------------------------------------------------------------
 # R Data libraries
 # --------------------------------------------------------------
 require(data.table, warn.conflicts=FALSE)
@@ -7,7 +13,7 @@ require(igraph, warn.conflicts=FALSE)
 require(TSstudio, warn.conflicts=FALSE)
 require(plotly, warn.conflicts=FALSE)
 require(dtw, warn.conflicts=FALSE)
-#require(ContourFunctions, warn.conflicts=FALSE)
+require(ContourFunctions, warn.conflicts=FALSE)
 
 # --------------------------------------------------------------
 # Machine specific
@@ -57,18 +63,20 @@ inrixSouth = i[segmentid == 1071883675,]
 print(paste("No. of rows in INRIX South", nrow(inrixSouth)))
 
 
-#inrix_ts <- as.numeric(as.POSIXct(timestamputc))
+# inrix_ts <- as.numeric(as.POSIXct(timestamputc))
+# ugly hack to shift timestamps
 
-inrixNorth[, Epoch_inrix := as.numeric(as.POSIXct(timestamputc)) - min(as.numeric(as.POSIXct(timestamputc)))]
-
-timeConvert(inrixNorth)
+inrixNorth[, Epoch_inrix := as.numeric(as.POSIXct(timestamputc)) - min(as.numeric(as.POSIXct(timestamputc))) - 2*minsPerHour]
 
 
-#inrixNorth[, travel_time_secs := traveltimeminutes * secsPerMin]
-#inrixNorth[, speed := speed * IfactorM]
-#inrixNorth[, average := average * IfactorM ]
+# timeConvert(inrixNorth)
 
-inrixSouth[, Epoch_inrix := as.numeric(as.POSIXct(timestamputc)) - min(as.numeric(as.POSIXct(timestamputc)))]
+
+# inrixNorth[, travel_time_secs := traveltimeminutes * secsPerMin]
+# inrixNorth[, speed := speed * IfactorM]
+# inrixNorth[, average := average * IfactorM ]
+
+inrixSouth[, Epoch_inrix := as.numeric(as.POSIXct(timestamputc)) - min(as.numeric(as.POSIXct(timestamputc))) - 2*minsPerHour]
 
 #inrixSouth[, travel_time_secs := traveltimeminutes * secsPerMin]
 #inrixSouth[, speed := speed * IfactorM]
@@ -1001,4 +1009,4 @@ invisible(dev.off())
 # Convert
 # ----------------------------------------------------------------
 
-system2("./Python/convertall-py")
+#system2("./Python/convertall-py")
